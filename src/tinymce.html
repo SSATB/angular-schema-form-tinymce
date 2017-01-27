@@ -3,7 +3,7 @@
   <textarea
     tx-tinymce="form.tinymceOptions"
     ng-model="$$value$$"
-    style="background-color: white"
+    style="background-color: white" sf-field-model  sf-changed="form" 
     schema-validate="form"
   ></textarea>
   <span class="help-block">{{ (hasError() && errorMessage(schemaError())) || form.description}}</span>

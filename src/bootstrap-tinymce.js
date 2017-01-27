@@ -1,6 +1,6 @@
 angular.module('schemaForm-tinymce', ['schemaForm', 'tx-tinymce']).config(
-['schemaFormProvider', 'schemaFormDecoratorsProvider', 'sfPathProvider',
-  function(schemaFormProvider,  schemaFormDecoratorsProvider, sfPathProvider) {
+['schemaFormProvider', 'schemaFormDecoratorsProvider', 'sfPathProvider','sfBuilderProvider',
+  function(schemaFormProvider,  schemaFormDecoratorsProvider, sfPathProvider, sfBuilderProvider) {
 
     var wysiwyg = function(name, schema, options) {
     if (schema.type === 'string' && schema.format == 'html') {
@@ -19,4 +19,11 @@ angular.module('schemaForm-tinymce', ['schemaForm', 'tx-tinymce']).config(
     'directives/decorators/bootstrap/tinymce/tinymce.html');
     schemaFormDecoratorsProvider.createDirective('wysiwyg',
     'directives/decorators/bootstrap/tinymce/tinymce.html');
+    var sfField = sfBuilderProvider.builders.sfField;
+    var ngModel = sfBuilderProvider.builders.ngModel;
+    var ngModelOptions = sfBuilderProvider.builders.ngModelOptions;
+    var defaults = [sfField, ngModel];
+    schemaFormDecoratorsProvider.defineAddOn('bootstrapDecorator', 'wysiwyg', 'directives/decorators/bootstrap/tinymce/tinymce.html', defaults);
+
+
   }]);
