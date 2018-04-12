@@ -21,9 +21,10 @@ angular.module('schemaForm-tinymce', ['schemaForm', 'tx-tinymce']).config(
     schemaFormDecoratorsProvider.createDirective('wysiwyg',
     'directives/decorators/bootstrap/tinymce/tinymce.html');
     var sfField = sfBuilderProvider.builders.sfField;
+    var sfConditional = sfBuilderProvider.builders.condition;
     var ngModel = sfBuilderProvider.builders.ngModel;
     var ngModelOptions = sfBuilderProvider.builders.ngModelOptions;
-    var defaults = [sfField, ngModel];
+    var defaults = [sfField, ngModel, sfConditional];
     schemaFormDecoratorsProvider.defineAddOn('bootstrapDecorator', 'wysiwyg', 'directives/decorators/bootstrap/tinymce/tinymce.html', defaults);
 
 
